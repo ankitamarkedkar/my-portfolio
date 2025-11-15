@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ankita - UI/UX Designer & Frontend Developer Portfolio">
+    <title>Ankita - UI/UX Designer & Frontend Developer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="images/favicon.ico">
+    
+    <!-- Bootstrap CSS (Latest v5.3.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Advanced Code Protection -->
+    <script>
+        // Immediate protection before page loads
+        (function() {
+            // Disable right-click
+            document.addEventListener('contextmenu', e => {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+            document.onkeydown = function(e) {
+                // F12
+                if (e.keyCode == 123) {
+                    return false;
+                }
+                // Ctrl+Shift+I
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                    return false;
+                }
+                // Ctrl+Shift+J
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                    return false;
+                }
+                // Ctrl+Shift+C
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+                    return false;
+                }
+                // Ctrl+U
+                if (e.ctrlKey && e.keyCode == 85) {
+                    return false;
+                }
+                // Ctrl+S
+                if (e.ctrlKey && e.keyCode == 83) {
+                    return false;
+                }
+            };
+            
+            // Disable text selection
+            document.onselectstart = function() {
+                return false;
+            };
+            
+            // Disable drag
+            document.ondragstart = function() {
+                return false;
+            };
+            
+            // Disable copy
+            document.oncopy = function() {
+                return false;
+            };
+            
+            // Detect DevTools - Aggressive Method
+            const detectDevTool = function(allow) {
+                if(isNaN(+allow)) allow = 100;
+                const start = +new Date();
+                debugger;
+                const end = +new Date();
+                if(isNaN(start) || isNaN(end) || end - start > allow) {
+                    document.write('');
+                    window.location.href = 'about:blank';
+                }
+            };
+            
+            if(window.attachEvent) {
+                window.attachEvent('onload', detectDevTool);
+                window.attachEvent('onfocus', detectDevTool);
+                window.attachEvent('onblur', detectDevTool);
+            } else {
+                window.addEventListener('load', detectDevTool);
+                window.addEventListener('focus', detectDevTool);
+                window.addEventListener('blur', detectDevTool);
+            }
+            
+            // Check window size for DevTools
+            setInterval(function() {
+                if(window.outerWidth - window.innerWidth > 100 || 
+                   window.outerHeight - window.innerHeight > 100) {
+                    document.documentElement.innerHTML = '';
+                    window.location.href = 'about:blank';
+                }
+            }, 1000);
+            
+            // Disable console
+            window.console.log = function() {};
+            window.console.warn = function() {};
+            window.console.error = function() {};
+            window.console.info = function() {};
+            window.console.debug = function() {};
+            
+            // Clear console constantly
+            setInterval(function() {
+                console.clear();
+            }, 100);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Three.js Background -->
+    <div id="threejs-bg"></div>
+
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">ANKITA Markhedkar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Mobile Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white fw-bold" id="offcanvasNavbarLabel">MENU</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#home" data-bs-dismiss="offcanvas">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills" data-bs-dismiss="offcanvas">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience" data-bs-dismiss="offcanvas">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects" data-bs-dismiss="offcanvas">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="hero-title mb-4">ANKITA</h1>
+                    <p class="hero-tagline mb-4">UI/UX Designer × Frontend Developer</p>
+                    <p class="hero-description mb-5 px-lg-5">
+                        Transforming ideas into pixel-perfect realities. Specializing in cutting-edge design systems, 
+                        AI-powered solutions, and immersive user experiences with 3+ years of innovation.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="#projects" class="btn btn-neon btn-primary-neon">Explore Work</a>
+                        <a href="https://www.behance.net/ankita" target="_blank" class="btn btn-neon btn-secondary-neon">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Expertise</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 text-center">
+                        <div class="skill-icon mb-3">🎨</div>
+                        <h3 class="skill-title mb-3">UI/UX Design</h3>
+                        <p class="text-white-50">Master of Adobe XD, Figma, Sketch. Crafting intuitive wireframes, interactive prototypes, and stunning visual designs that captivate users.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 text-center">
+                        <div class="skill-icon mb-3">⚛️</div>
+                        <h3 class="skill-title mb-3">Frontend Magic</h3>
+                        <p class="text-white-50">React.js, Angular, HTML5, CSS3, JavaScript. Building lightning-fast, responsive web applications with modern frameworks.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 text-center">
+                        <div class="skill-icon mb-3">⚡</div>
+                        <h3 class="skill-title mb-3">Salesforce LWC</h3>
+                        <p class="text-white-50">Enterprise-grade Lightning Web Components. Creating scalable design systems for Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 text-center">
+                        <div class="skill-icon mb-3">🎭</div>
+                        <h3 class="skill-title mb-3">Design Systems</h3>
+                        <p class="text-white-50">Material UI, Tailwind CSS, Bootstrap, Ant Design, Shadcn/ui. Component libraries that scale beautifully.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 text-center">
+                        <div class="skill-icon mb-3">🤖</div>
+                        <h3 class="skill-title mb-3">AI Integration</h3>
+                        <p class="text-white-50">Python, MongoDB, Generative AI. Building intelligent chatbots that reduce workload by 40% using cutting-edge AI.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="skill-card p-4 text-center">
+                        <div class="skill-icon mb-3">📊</div>
+                        <h3 class="skill-title mb-3">Data Viz</h3>
+                        <p class="text-white-50">Power BI dashboards. Transforming complex data into compelling visual stories that drive decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="section">
+        <h2 class="section-title text-center">Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Apr 2024 - Present</div>
+                    <h3 class="timeline-title">Frontend Dev & AI Innovator</h3>
+                    <p class="timeline-company">RedVision Global Technologies · Indore</p>
+                    <p class="timeline-description">
+                        Leading React.js development for enterprise clients. Built AI-powered Finance Chatbot using Generative AI, 
+                        reducing operational workload by 40%. Designed complete mobile app interfaces in Figma for fintech solutions.
+                    </p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jun 2022 - Apr 2024</div>
+                    <h3 class="timeline-title">UI/UX Designer & Developer</h3>
+                    <p class="timeline-company">TheRapidHire Private Limited · Indore</p>
+                    <p class="timeline-description">
+                        Architected Salesforce LWC design systems for T-Mobile and Citizens Bank USA. 
+                        Optimized web performance for 3SC Solutions using React.js and Kendo UI.
+                    </p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">May 2020 - Feb 2022</div>
+                    <h3 class="timeline-title">Co-Founder & Business Partner</h3>
+                    <p class="timeline-company">Fabrication & Manufacturing</p>
+                    <p class="timeline-description">
+                        Managed full-stack operations while building digital presence for industrial clients. 
+                        Created websites for Turmeon, Khilona Express, Wellbeing, and Ageco.
+                    </p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jul 2017 - Dec 2019</div>
+                    <h3 class="timeline-title">Lecturer / Assistant Professor</h3>
+                    <p class="timeline-company">Computer Science & Engineering</p>
+                    <p class="timeline-description">
+                        Taught Data Structures, Web Development, and Database Systems. 
+                        Mentored students on industry-adopted final-year projects.
+                    </p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title text-center">Featured Work</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/tradewave.png" alt="Tradewave">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Trade Wave Financial Figma</h3>
+                    <p class="project-description">
+                        Comprehensive finance management platform featuring real-time data visualization, 
+                        responsive UI, and seamless user experience for wealth management.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://www.figma.com/design/fqm7TiysTCwcxQjJQRfog6/Ankita-Community?node-id=2006-2813&t=V1sdWir9sAAEEM2H-1" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/Mfeinstein.png" alt="MF Einstein">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">MF Einstein</h3>
+                    <p class="project-description">
+                        Intelligent finance platform with comprehensive wealth management tools and real-time analytics.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://www.figma.com/design/nXeOLgC6LNIhRJT1XGxFer/Einstein?node-id=1-11877&t=foiJE7749D5cBmQg-1" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/Loginkit.png" alt="Login Kit">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Login/Signup Kit</h3>
+                    <p class="project-description">
+                        Modern authentication UI kit with multiple design variations and smooth user flows.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://www.figma.com/design/fqm7TiysTCwcxQjJQRfog6/Ankita-Community?node-id=2011-48083&t=V1sdWir9sAAEEM2H-1" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/brandkit.png" alt="Brand Kit">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Brandkit</h3>
+                    <p class="project-description">
+                        Complete brand identity system with comprehensive design guidelines and asset library.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://www.figma.com/design/fqm7TiysTCwcxQjJQRfog6/Ankita-Community?node-id=2011-48083&t=V1sdWir9sAAEEM2H-1" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/Turmeon.png" alt="Turmeon">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Turmeon</h3>
+                    <p class="project-description">
+                        E-commerce platform with seamless shopping experience and modern design aesthetics.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://turmeon.com/en/homepage/" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/agecco.png" alt="Agecco">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Agecco</h3>
+                    <p class="project-description">
+                        Corporate website with clean design and intuitive navigation for industrial solutions.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="http://www.ageco.in/" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/khilona.png" alt="Khilona Express">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Khilona Express</h3>
+                    <p class="project-description">
+                        Toy marketplace with engaging user interface and smooth checkout experience.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://www.khilonaexpress.com/" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/Safetech.png" alt="Safetech">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Safetech Systems</h3>
+                    <p class="project-description">
+                        Security solutions website with professional design and comprehensive service showcase.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://www.safetechsystems.in/" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/tmobile.png" alt="T-Mobile">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">T-Mobile & CardBench</h3>
+                    <p class="project-description">
+                        Enterprise telecommunications platform with high-performance interfaces and modern CSS architecture.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Enterprise</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/3SC.png" alt="3SC Solutions">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">3SC Solutions</h3>
+                    <p class="project-description">
+                        Optimized corporate website with improved performance and enhanced user experience.
+                    </p>
+                    <div class="tech-tags">
+                        <a href="https://3scsolution.com/" target="_blank" class="tech-tag">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title text-center">Let's Connect</h2>
+        <p style="font-size: 1.3rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Ready to create something extraordinary? Let's collaborate and build the future of digital experiences together.
+        </p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:ankita@gmail.com" class="contact-value">ankita@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:+919899999999" class="contact-value">+91-9899999999</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-label">Location</div>
+                <span class="contact-value">Indore, M.P</span>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🎨</div>
+                <div class="contact-label">Portfolio</div>
+                <a href="https://www.behance.net/ankita" target="_blank" class="contact-value">View on Behance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
